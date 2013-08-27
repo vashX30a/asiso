@@ -1,52 +1,51 @@
-/* hr design for dividing the fill-up forms part to the body part and
-   footnote part */
-hr#upper {
-	border-style:solid;
-	border-width:3px;
-	height:3px;
-	color:black;
-	background-color:black;
+/* header part of the log-in page */
+#header {
+	background-image: url(/asiso/images/background/login_header.jpg);
+	border-radius:15px;
+	position:fixed;
+	top:20px;
+	left:4%;
+	width:90%;
+	height:70px;
+	text-align:center;
+	padding:10px;
 }
 
-/* hr design for dividing the footnote part from the body part */
-hr#footnote {
-	height:1px;
+/* upper(head) part of the header text */
+p#headertext {
+	color:#556B2F;
+}
+
+/* lower(sub) part of the header text */
+p#subheadertext {
+	color:#8B0000;
+}
+
+/* footer part of the log-in page */
+#footer {
+
+}
+
+/* style for the forms container */
+#forms {
 	border-style:solid;
 	border-width:1px;
-	color:black;
-	margin:450px 0px 0px 0px;
-	background-color:black;
+	border-radius:15px;
+	box-shadow:10px 2px 5px #808080;
+	margin:230px auto 250px auto;
+	height:50px;
+	width:250px;
+	padding:40px 15px; 
 }
 
-/* partition for the fill-up forms */
-div#fillup_forms {
-	margin:0px 0px 0px 1100px;
-	font-size:15px;
-	font-weight:bold;
+/* style for individual form */
+form {
+	width:auto;
+	max-width:auto;
 }
 
-body {
-	background-color:#b0c4de;
-}
-
-/* division for the part containing the title of the project */
-div.title {
-	text-align:center;
-}
-
-/* the intro text of the title of the project */
-div.title #intro {
-	font-size: 30px;
-	font-weight:bold;
-}
-
-/* the sub-intro part of the title of the project */
-div.title #sub-intro {
-	font-size: 15px;
-	font-weight:normal;
-}
-
-/* division for footnotes of the homepage */
-div#footnote {
-	margin: 0px 400px 0px 600px;
+/* span */
+span {
+	text-align:justify;
+	text-transform:uppercase;
 }

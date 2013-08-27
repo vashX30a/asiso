@@ -11,33 +11,31 @@
 		</title>
 		<link rel="stylesheet" type="text/css" href="/asiso/css/homepage/log_in.css">
 	</head>
-
 	<body>
-		<div class="title">
-				<div class="title" id="intro">ASISO</div>
-				<div class="title" id="sub-intro">
-				Automated Sign-in Sign-out<br>
-				An open source software
-				</div>
+		<div id="header">
+			<p id="headertext">ASISO</p>
+			<p id="subheadertext">Automated Sign-in Sign-out</p>
 		</div>
-			
-		<div id="fillup_forms">			
-			<!form action="" method="post">
+		
+		<div id="forms">
 			<form>
-				username<input type="text" name="username"><br>
-				password<input type="password" name="password">
+				<span>Username</span> <input type="text" />
+				<span>Password</span> <input type="password" />
 			</form>
 		</div>
-		<hr id="upper">
-		<?php
-			//about ASISO starts here
-		?>
 		
-		<hr id="footnote" />
-		<div id="footnote">
-			<a><u>About ASISO</u></a>
-			<a><u>Developers</u></a>
-			<a><u>Help</u></a>
-		</div>
+		<center>
+		<table>
+			<tr>
+			<?php
+				//edit this part. replace center tag by div id="footer"
+				//you can also edit the gui of the page
+				echo '<td>'.anchor('controller/addOnPage/about_asiso', 'About Asiso').'<td>';
+				echo '<td>'.anchor('controller/addOnPage/developers', 'Developers').'</td>';
+				echo '<td>'.anchor('controller/addOnPage/help', 'Help').'</td>';
+			?>
+			</tr>
+		</table>
+		</center>
 	</body>
 </html>	
