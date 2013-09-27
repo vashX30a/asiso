@@ -8,6 +8,5 @@ Student!!
 	echo form_close();
 	echo br(3);
 	echo 'name: ' . $name . br();
-	echo 'account_type: ' . $accnt_type . br();
 	echo 'username: ' . $username . br();
 ?>

@@ -18,67 +18,61 @@ class Controller extends CI_Controller {
 		$this->load->model('Login_model', 'login');
 	 }
 	 
+	 //automatically run if no function in the uri is indicated
+	 //if the user is not yet logged in, shows the login page
+	 //if the user is already logged in, redirect the user to his/her homepage
+	 //	through the showHome function
 	 public function index() {
-		 if(!$this->session->userdata('userID')) {
-			$this->form_validation->set_rules('username', 'Username', 'required');
-			$this->form_validation->set_rules('password', 'Password', 'required');
+		 if(!$this->session->userdata('userId')) {
+			//$this->form_validation->set_rules('username', 'Username', 'required');
+			//$this->form_validation->set_rules('password', 'Password', 'required');
 			$data['title'] = 'Asiso';
 			$this->load->view('header_view', $data);
 			$this->load->view('login_view');
 			$this->load->view('footer_view');
 		 }
 		 else {
-			 $accnt_type = $this->session->userdata('accntType');
-			 redirect(site_url("controller/profileChooser/$accnt_type"));
+			redirect(site_url("controller/showHome"));
 		 }
 	 }
+	 
 	 //logs in the user
 	 //if the query returns false, load user not found page
-	 //otherwise, get the account type and pass to the profileChooser
-	//	function to determine what view the user is entitled to.
+	 //otherwise, redirects the user to his/her home page through the showHome function
 	 public function login() {
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
 		
-		$query = $this->login->log_user($username, $password);
-		if($query == false) {
-			//load user not found page
+		if(!$this->session->userdata('userId')) {
+			$query = $this->login->log_user($username, $password);
+			if($query == false) {
+				$this->load->view('header_view');
+				$this->load->view('user_notfound');
+				$this->load->view('footer_view');
+			}
+			else {
+				redirect(site_url("controller/showHome"));
+			}
 		}
 		else {
-			$accnt_type = $this->session->userdata('accntType');
-			redirect(site_url("controller/profileChooser/$accnt_type"));
+			redirect(site_url("controller/showHome"));
 		}
 	 }
 	 
-	 //chooses the kind of user that is logged in
-	 //	and redirects the user to the interface associated to the
-	 //	particular account type
-	 public function profileChooser($accnt_type) {
-		 $idNum = $this->session->userdata('userId');
-		 $query = $this->login->getUser($idNum, $accnt_type);
-		 $value = $query->row();
-		 $data['name'] = $value->fname . $value -> lname;
-		 $data['username'] = $value->username;
-		 $data['accnt_type'] = $accnt_type;
-		 $data['title'] = $value->username;
-		 switch($accnt_type) {
-			case 'student':
-				$this->load->view('header_view', $data);
-				$this->load->view('student_view', $data);
-				$this->load->view('footer_view');
-				break;
-			case 'teacher':
-				$this->load->view('header_view', $data);
-				$this->load->view('teacher_view', $data);
-				$this->load->view('footer_view');
-				break;
+	 //redirects the user to his/her homepage
+	 public function showHome() {
+		 if($this->session->userdata('userId')) {
+			redirect(site_url("homepage"));
+		 }
+		 else {
+			redirect(site_url("controller"));
 		 }
 	 }
 	 
 	 //logs out the user and redirects him/her to the login page
 	 public function logout() {
-		 $this->session->sess_destroy();
-		 redirect(site_url('controller'));
+		$this->session->sess_destroy();
+		redirect(site_url('controller'));
 	 }
  }
 		
