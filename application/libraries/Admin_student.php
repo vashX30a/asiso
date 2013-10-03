@@ -2,8 +2,8 @@
 
 class Admin_student extends Student {
 	
-	public function index() {
-		echo 'admin student';
+	public function __construct() {
+		parent::__construct(); 	//java = super()
 	}
 }
 

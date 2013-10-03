@@ -62,7 +62,7 @@ class Controller extends CI_Controller {
 	 //redirects the user to his/her homepage
 	 public function showHome() {
 		 if($this->session->userdata('userId')) {
-			redirect(site_url("homepage"));
+			redirect(site_url("student_page"));
 		 }
 		 else {
 			redirect(site_url("controller"));

@@ -9,34 +9,44 @@ class Student {
 	protected $collegein = null;
 	protected $coursein = null;
 	protected $year = null;
+	//private $CI;	//instance variable for codeigniter
+	private $student;
 	
 	//constructor
 	public function __construct($params) {
 		//get codeigniter's instance
-		$CI = &get_instance();
-		$CI->load->model('student_model', 'student');
+		$CI = & get_instance();
+		$CI->load->model('student_model');
+		$this->student = $CI->student_model;
 		//set id number
 		$this->idNum = $params['id'];
-		$bio = $CI->student->getStudent($this->idNum);
+		$bio = $this->student->getStudent($this->idNum);
 		if($bio != false) {
-			//set attributes
+			//set attributes if $bio query returns something
 			$bioRow = $bio->row();
 			$this->name = $bioRow->fname . ' ' . $bioRow->minit . '. ' . $bioRow->lname;
 			$this->username = $bioRow->username;
 			$this->year = $bioRow->year;
 		}
-		$skul = $CI->student->getStudentCourseAndCollege($this->idNum);
+		$skul = $this->student->getStudentCourseAndCollege($this->idNum);
 		if($skul != false) {
-			//set attributes
+			//set attributes if $skul query returns something
 			$skulRow = $skul->row();
 			$this->collegein = $skulRow->college;
 			$this->coursein = $skulRow->course;
 		}
 	}
 	
-	//get the record of the current instance student
-	public function getEventRecord() {
-		
+	//get the event records of the current instance of Student
+	//returns the query in array form of all the attended events of the student if the student has attended at least one event
+	//otherwise, returns an empty array
+	public function getThisStudentEventRecord() {
+		//TODO
+		$query = $this->student->getEventsOfThisStudent($this->idNum);
+		if($query != false)
+			return $query->result_array();
+		else
+			return array();
 	}
 
 	/*
