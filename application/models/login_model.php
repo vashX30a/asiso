@@ -19,9 +19,10 @@ class Login_model extends CI_Model {
 		}
 		else {
 			$value = $result->row();
+			$accntType = $value->isadmin == 'f' ? 'normal' : 'admin';
 			$sessData = array (
 				'userId' => $value->idnumber,
-				'accntType' => $value->isadmin
+				'accntType' => $accntType
 			);
 			$this->session->set_userdata($sessData);
 			return $result;

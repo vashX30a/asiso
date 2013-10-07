@@ -7,6 +7,7 @@ class Student_model extends CI_Model {
 		$this->load->database();
 	}
 	
+	//created by kert
 	//get student information by the student's id-number
 	//if no result found, return false
 	//otherwise, return a query object
@@ -17,6 +18,7 @@ class Student_model extends CI_Model {
 		return $query;
 	}
 	
+	//created by kert
 	//get the course/college of the student given his/her id-number
 	//if no result found, return false
 	//otherwise, return a query object
@@ -27,6 +29,7 @@ class Student_model extends CI_Model {
 		return $query;
 	}
 	
+	//created by kert
 	//gets the set of events that can be participated by this student
 	//if no result found, return false
 	//otherwise, return a query object
@@ -37,18 +40,32 @@ class Student_model extends CI_Model {
 		return $query;
 	}
 	
-	//checks if the particular student is already signed in to a particular event
-	//if no result found, return false
-	//otherwise, return a true
-	public function isStudentSignedInToAnEvent($stud_id, $event_id) {
-		//TODO
+	
+	//created by sherwin
+	//updates enrollment status of a student
+	//returns void
+	public function enrollStudent($studId) {
+		$this->db->query("UPDATE student SET isEnrolled = 'true' WHERE idnumber = '$studId'");
 	}
 	
-	//checks if the particular student is already singed out to a particular event
-	//if no result found, return false
-	//otherwise, return true
-	public function isStudentSignedOutToAnEvent($stud_id, $event_id) {
-		//TODO
+	//created by sherwin
+	//adds a student and initializes the needed records for the new student
+	//returns void
+	public function addStudent($idnum, $fname, $minit, $lname, $password, $username, $year) {
+		$this->db->query("INSERT INTO student(idnumber, fname, minit, lname, year, password, username) VALUES ('$id_num', '$fname', '$minit', '$lname', '$year', '$password', '$username')");
+	}
+	
+	//created by sherwin
+	//edits the student specified by the $studId
+	//$whatToEdit specifies the column to be edited
+	//$newValue is the new value to be saved
+	//returns void
+	public function editStudent($studId, $whatToEdit, $newValue) {
+		//since the domain of the year column of the student is integer, no quotations are needed for the $newValue
+		if($whatToEdit == 'year')
+			$this->db->query("UPDATE student SET $whatToEdit = $newValue WHERE idnumber = '$studId'");
+		else
+			$this->db->query("UPDATE student SET $whatToEdit = '$newValue' WHERE idnumber = '$studId'");
 	}
 	
 }

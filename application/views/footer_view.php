@@ -1,3 +1,2 @@
-	FOOTER
 	</body>
 </html>

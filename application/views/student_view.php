@@ -1,5 +1,9 @@
 Student!!
 <?php 
+	echo 'name: ' . $name . br();
+	echo 'username: ' . $username . br();
+	echo br();
+	
 	//log out button
 	echo form_open('controller/logout');
 	echo form_submit('logout', 'Log Out');
@@ -12,7 +16,5 @@ Student!!
 	echo form_open('student_page/displayThisStudentRecord');
 	echo form_submit('view_records', 'View Records');
 	echo form_close();
-	echo br(3);
-	echo 'name: ' . $name . br();
-	echo 'username: ' . $username . br();
+	
 ?>

@@ -9,7 +9,6 @@ class Student {
 	protected $collegein = null;
 	protected $coursein = null;
 	protected $year = null;
-	//private $CI;	//instance variable for codeigniter
 	private $student;
 	
 	//constructor
@@ -41,7 +40,6 @@ class Student {
 	//returns the query in array form of all the attended events of the student if the student has attended at least one event
 	//otherwise, returns an empty array
 	public function getThisStudentEventRecord() {
-		//TODO
 		$query = $this->student->getEventsOfThisStudent($this->idNum);
 		if($query != false)
 			return $query->result_array();

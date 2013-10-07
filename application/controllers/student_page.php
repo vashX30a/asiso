@@ -35,6 +35,9 @@ class Student_page extends CI_Controller {
 			//load views
 			$this->load->view('header_view', $data);
 			$this->load->view('student_view', $data);
+			//if student is admin, load an additional view
+			if($this->session->userdata('accntType') == 'admin')
+				$this->load->view('admin_student_view', $data);
 			$this->load->view('footer_view');
 		}
 		else

@@ -1,0 +1,120 @@
+    /* {
+		margin:0px;
+		padding:0px;
+	} */ 
+	
+	body {
+		font-family: Calibri;
+		background-color: #CFCFCF;
+		padding: 50px;
+	}
+		
+	#navmenu, ul.sub1{
+			list-style-type: none;
+			outline: 1pxsolid red;
+	}
+	
+	#navmenu li {
+			width: 125px;
+			text-align: center;
+			position: relative;
+			float: left;
+			margin-right: 3px;
+	}
+	
+	#well li{
+		list-style-type: none;
+	}
+			
+	#navmenu a {
+		text-decoration: none;
+		display: block;
+		width: 125px;
+		height: 25px;
+		line-height: 25px;
+		background-color: white;
+		border: 1px solid black;
+		border-radius: 5px;
+	}
+			
+	#header {
+		text-align: center;
+		font-family: calibri;
+		font-size: 25px;
+		background-color: lightblue;
+		border-bottom: 2px solid #010;
+		margin-bottom: 1px;
+	}
+	
+	#header ul{
+		width: 80%;
+		margin: 100 auto ;
+		padding: 0px;
+		background-color: #FC0; 
+	}
+	
+	h4 {
+		font-family: calibri;
+		font-size: 15px;
+		font-color: white;
+		width:500px;
+		height: 200px;
+		margin:100px auto;
+		background-color: #f8e8a0; 
+		padding: 40px;
+		border-radius: 5px; 
+		border:1px solid #909090;
+	}
+	
+	#navmenu .sub1 a {
+		margin-top: 2px;
+	}
+	
+	#navmenu li:hover > a{
+		background-color: #CFC;
+	}
+	
+	#navmenu li:hover a:hover {
+		background-color: #FF0;
+	}
+	
+	#navmenu ul.sub1 {
+		display: none;
+		position: absolute;
+		top: 26px;
+		left: 0px;
+	}
+	
+	#navmenu li:hover .sub1 {
+		display: block;
+	}
+	
+	.darrow {
+		font-size: 14pt;
+		position: absolute;
+		top: 1px;
+		right: 4px;
+	}
+	
+	#CreateEventForm {
+		font-family: verdana,helvetica;
+		font-size: 12px;
+		width: 400px;
+		height: 200px;
+		margin:100px auto;
+		background-color: #f8e8a0; 
+		padding: 40px;
+		border-radius: 5px; 
+		border:1px solid #909090;
+	}
+	
+	#login_form {
+		width:300px;
+		height: 80px;
+		margin:80px auto;
+		background-color: #f8e8a0; 
+		border-radius: 5px; 
+		border:1px solid #909090;
+		padding: 30px;
+	}
+	
