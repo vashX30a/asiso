@@ -1,15 +1,21 @@
-    /* {
+	/* All */
+	* {
 		margin:0px;
 		padding:0px;
-	} */ 
+	}
 	
 	body {
 		font-family: Calibri;
-		background-color: #CFCFCF;
+		background-color: #FFF;
 		padding: 50px;
 	}
 		
 	#navmenu, ul.sub1{
+			list-style-type: none;
+			outline: 1pxsolid red;
+	}
+	
+	#navmenu, ul.sub2{
 			list-style-type: none;
 			outline: 1pxsolid red;
 	}
@@ -27,6 +33,8 @@
 	}
 			
 	#navmenu a {
+		font-family: calibri;
+		font-size: 12px;
 		text-decoration: none;
 		display: block;
 		width: 125px;
@@ -38,35 +46,44 @@
 	}
 			
 	#header {
+		text-shadow: 0.2em 0.2em 0.4em #161616;
 		text-align: center;
 		font-family: calibri;
-		font-size: 25px;
-		background-color: lightblue;
+		font-size: 20px;
+		background-color: white;
 		border-bottom: 2px solid #010;
 		margin-bottom: 1px;
+		color #424242;
 	}
 	
-	#header ul{
+	#header ul {
 		width: 80%;
 		margin: 100 auto ;
 		padding: 0px;
 		background-color: #FC0; 
 	}
 	
-	h4 {
-		font-family: calibri;
+	#content {
+		font-family: Tahoma;
 		font-size: 15px;
-		font-color: white;
-		width:500px;
-		height: 200px;
+		height: auto;
+		border: 1px solid;
+		min-height: 200px;
 		margin:100px auto;
-		background-color: #f8e8a0; 
+		width:1000px;
+		background-color: white; 
 		padding: 40px;
 		border-radius: 5px; 
 		border:1px solid #909090;
+		box-shadow: 4px 4px 7px black;
+		text-shadow: none;
 	}
 	
 	#navmenu .sub1 a {
+		margin-top: 2px;
+	}
+	
+	#navmenu .sub2 a {
 		margin-top: 2px;
 	}
 	
@@ -75,7 +92,7 @@
 	}
 	
 	#navmenu li:hover a:hover {
-		background-color: #FF0;
+		background-color: #CFCFCF;
 	}
 	
 	#navmenu ul.sub1 {
@@ -85,7 +102,18 @@
 		left: 0px;
 	}
 	
+	#navmenu ul.sub2 {
+		display: none;
+		position: absolute;
+		top: 26px;
+		left: 0px;
+	}
+	
 	#navmenu li:hover .sub1 {
+		display: block;
+	}
+	
+	#navmenu li:hover .sub2 {
 		display: block;
 	}
 	
@@ -100,21 +128,90 @@
 		font-family: verdana,helvetica;
 		font-size: 12px;
 		width: 400px;
-		height: 200px;
+		height: 150px;
 		margin:100px auto;
-		background-color: #f8e8a0; 
+		background-color: white; 
 		padding: 40px;
 		border-radius: 5px; 
 		border:1px solid #909090;
+		box-shadow: 0.3em 0.3em 0.7em black;	
+	}
+	
+	#CreateEventForm h2,td {
+		text-shadow: 0.2em 0.2em 0.4em #161616;
+	}
+	
+	#searchBar td {
+		text-shadow:0.2em 0.2em 0.4em black;
 	}
 	
 	#login_form {
+		position: relative;
 		width:300px;
-		height: 80px;
-		margin:80px auto;
-		background-color: #f8e8a0; 
+		height: 80%;
+		margin: 80px auto;
+		background-color: white; 
 		border-radius: 5px; 
 		border:1px solid #909090;
 		padding: 30px;
+		box-shadow: 0.4em 0.4em 0.7em black;
+	}
+
+	#date_time {
+		font-family: verdana, helvetica;
+		font-size: 15px;
+		position: relative;
+	}
+
+	#search_form {
+		text-shadow:0.2em 0.2em 0.4em black;
+		font-family: verdana,helvetica;
+		font-size: 12px;
+		width: 500px;
+		height: 150px;
+		margin:100px auto;
+		background-color: white; 
+		padding: 40px;
+		border-radius: 5px; 
+		border:1px solid #909090;
+		box-shadow: 4px 4px 7px black;
+	}
+
+	#table_output thead > tr, tbody{
+    		display: inline-block;
+	}
+
+
+	#table_output {
+		border-radius: 10px;
+		background-color:white;
+		margin: 50px;
+		box-shadow: 4px 4px 7px black;
+	}
+
+	#table_output td {
+		color: #0b1cd2;
+		padding: 10px;
+		border:1px solid #0b1cd2;
+		size: 50px;
+	}
+
+	#table_output tbody  {
+		width: 350px;
+	    height: 160px;
+	   	overflow-y: auto;
+		overflow-x: hidden;
+		border-radius: 5px;
+		background-color:  white;
 	}
 	
+	
+	
+	/*
+		Style to the Headers in viewing records
+		of student or event
+	*/
+	th.recordheader {
+		font-family: Arial, Verdana, Sans-serif;
+		font-size: 1.2em;
+	}

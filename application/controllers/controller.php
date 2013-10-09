@@ -72,7 +72,7 @@ class Controller extends CI_Controller {
 	 //logs out the user and redirects him/her to the login page
 	 public function logout() {
 		$this->session->sess_destroy();
-		redirect(site_url('controller'));
+		redirect(site_url(''));
 	 }
  }
 		

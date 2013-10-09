@@ -8,7 +8,7 @@ class Login_model extends CI_Model {
 	}
 	
 	//retrieves information of a user given his/her username and password
-	//searches the student table
+	//creates an session cookie in the process
 	//if the user is found, returns the query object
 	//if nothing is found, the function returns false.
 	public function log_user($username, $password) {

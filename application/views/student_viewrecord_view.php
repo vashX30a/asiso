@@ -1,36 +1,101 @@
-<table border = 1 cellpadding = 2 cellspacing = 0>
-<th>Event Name</th>
-<th>Date</th>
-<th>Signed in</th>
-<th>Signed out</th>
-
-<?php 
-	//log out button
-	echo form_open('controller/logout');
-	echo form_submit('logout', 'Log Out');
-	echo form_close();
-	//redirect button--to check if session works properly
-	echo form_open(current_url());
-	echo form_submit('redirect', 'Redirect');
-	echo form_close();
-	//home button
-	echo form_open('student_page');
-	echo form_submit('home', 'Home');
-	echo form_close();
-
-	//table for the records
-	foreach($records as $r) {
-		echo '<tr align = \'center\'>';
-		echo '<td>' . $r['name'] . '</td>';
-		echo '<td>' . $r['date'] . '</td>';
-		echo '<td>';
-		echo $r['signed_in'] ? 'yes' : 'no';
-		echo '</td>';
-		echo '<td>';
-		echo $r['signed_out'] ? 'yes' : 'no';
-		echo '</td>';
-		echo '</tr>';
-	}
-	echo '</table>';
-	echo br(3);
-?>
+<body>
+	<!--MSUIIT Logo-->
+	<p><center><img src="<?php echo base_url() ?>img/iit-logo.gif" width="94" height="94" align="texttop" longdesc="<?php echo base_url() ?>img/iit-logo.gif" />
+	</center></p>
+	<!-- ID header -->
+	<div id="header">
+		<h1>MSU-IIT ATTENDANCE CHECKER</h1>
+	</div>
+	<!--Code for the dropdown navmenu -->
+	<div>
+		<ul id ="navmenu">
+			<li><a href= <?php echo site_url('student_page') ?> >Home</a></li>
+			<li><a href="#">Records</a><span class="darrow">&#9660;</span>
+				<ul class="sub1">
+					<li><a href="<?php echo current_url() ?>">Event Record</a>
+				</ul>
+			</li>
+			<li><a href= <?php echo site_url('controller/logout'); ?> >Sign-out</a></li>
+		</ul>	
+	</div>
+	<!--Content of the page-->
+	<div id = "content">
+		<h4><center>
+			
+			<table border = 0 cellpadding = 2 cellspacing = 20>
+				<th class = "recordheader">Event Name</th>
+				<th class = "recordheader">Date</th>
+				<th class = "recordheader">Signed in</th>
+				<th class = "recordheader">Signed out</th>
+				
+				<?php
+					//table for the records
+					foreach($records as $r) {
+						echo '<tr align = \'center\'>';
+						echo '<td>' . $r['name'] . '</td>';
+						echo '<td>' . $r['date'] . '</td>';
+						echo '<td>';
+						echo $r['signed_in'] ? 'yes' : 'no';
+						echo '</td>';
+						echo '<td>';
+						echo $r['signed_out'] ? 'yes' : 'no';
+						echo '</td>';
+						echo '</tr>';
+					}
+				?>
+				
+				</table>
+				
+				
+				<table border = 0 cellpadding = 2 cellspacing = 20>
+				<th class = "recordheader">Event Name</th>
+				<th class = "recordheader">Date</th>
+				<th class = "recordheader">Signed in</th>
+				<th class = "recordheader">Signed out</th>
+				
+				<?php
+					//table for the records
+					foreach($records as $r) {
+						echo '<tr align = \'center\'>';
+						echo '<td>' . $r['name'] . '</td>';
+						echo '<td>' . $r['date'] . '</td>';
+						echo '<td>';
+						echo $r['signed_in'] ? 'yes' : 'no';
+						echo '</td>';
+						echo '<td>';
+						echo $r['signed_out'] ? 'yes' : 'no';
+						echo '</td>';
+						echo '</tr>';
+					}
+				?>
+				
+				</table>
+				
+					<table border = 0 cellpadding = 2 cellspacing = 20>
+				<th class = "recordheader">Event Name</th>
+				<th class = "recordheader">Date</th>
+				<th class = "recordheader">Signed in</th>
+				<th class = "recordheader">Signed out</th>
+				
+				<?php
+					//table for the records
+					foreach($records as $r) {
+						echo '<tr align = \'center\'>';
+						echo '<td>' . $r['name'] . '</td>';
+						echo '<td>' . $r['date'] . '</td>';
+						echo '<td>';
+						echo $r['signed_in'] ? 'yes' : 'no';
+						echo '</td>';
+						echo '<td>';
+						echo $r['signed_out'] ? 'yes' : 'no';
+						echo '</td>';
+						echo '</tr>';
+					}
+				?>
+				
+				</table>
+				
+				
+		</center></h4>
+	</div>
+</body>

@@ -7,6 +7,7 @@
 		</title>
 		<meta charset="utf-8">
 		<meta name ="author" content="Snoop Dog">
-		<link rel="stylesheet" type= "text/css" href="css/MSUIIT.css" />
+		<link rel="stylesheet" type="text/css" href= "<?php echo base_url() ?>css/MSUIIT.css" />
+		<link rel="icon" type="image/ico" href="img/msuiitlogo.ico">
+		<script type="text/javascript" src="js/date_time.js"></script>
 	</head>
-<body>

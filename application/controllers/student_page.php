@@ -10,6 +10,8 @@
 
 class Student_page extends CI_Controller {
 	
+	//private $header;
+	
 	//constructor
 	public function __construct() {
 		parent::__construct();
@@ -21,7 +23,14 @@ class Student_page extends CI_Controller {
 		$params = array(
 			'id' => $id
 		);
-		$this->load->library('student', $params);
+		//if($this->session->userdata('accntType') == 'admin') {
+			//$this->load->library('admin_student', $params);
+			//$this->header = $this->admin_student;
+		//}
+		//else {
+			$this->load->library('student', $params);
+			//$this->header = $this->student;
+		//}
 	}
 	
 	//displays the home page of the student
@@ -36,15 +45,17 @@ class Student_page extends CI_Controller {
 			$this->load->view('header_view', $data);
 			$this->load->view('student_view', $data);
 			//if student is admin, load an additional view
-			if($this->session->userdata('accntType') == 'admin')
-				$this->load->view('admin_student_view', $data);
+			//if($this->session->userdata('accntType') == 'admin') {
+			//	$data['idnumber'] = $this->student->getIdNum();
+			//	$this->load->view('admin_student_view', $data);
+			//}
 			$this->load->view('footer_view');
 		}
 		else
 			redirect(site_url('controller'));
 	}
 	
-	//display the current students records
+	//display the current student's records
 	public function displayThisStudentRecord() {
 		if($this->session->userdata('userId')) {
 			//set data array
@@ -58,6 +69,12 @@ class Student_page extends CI_Controller {
 		}
 		else
 			redirect(site_url('controller'));
+	}
+	
+	//display the current student's made events.
+	//it could be sing in or sign out depending on the parameter
+	public function displayThisStudentMadeRecords() {
+		
 	}
 	
 }

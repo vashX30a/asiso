@@ -18,7 +18,15 @@ class College_model extends CI_Model {
 		$this->db->query("UPDATE college set $whatToEdit = '$newValue' where college_initial = '$initial'");
 	}
 	
-	
+	//retrieves student's information who holds administrative rights to a certain college
+	//if nothing is retrieved, returns false
+	//otherwise, return the query object
+	public function getAdminsOfThisCollege($initial) { 
+		$query = $this->db->query("SELECT s.idnumber, s.fname, s.minit, s.lname, s.year FROM student s JOIN belongs b ON b.stud_id = s.idnumber WHERE b.college = '$initial' and s.isadmin = 't'");
+		if($query->num_rows() == 0)
+			return false;
+		return $query;
+	}
 }
 
 /* End of File */
