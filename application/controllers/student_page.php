@@ -20,61 +20,40 @@ class Student_page extends CI_Controller {
 		$this->load->model('student_model', 'student');
 		$id = $this->session->userdata('userId');
 		//set parameter for student object
-		$params = array(
-			'id' => $id
-		);
-		//if($this->session->userdata('accntType') == 'admin') {
-			//$this->load->library('admin_student', $params);
-			//$this->header = $this->admin_student;
-		//}
-		//else {
-			$this->load->library('student', $params);
-			//$this->header = $this->student;
-		//}
+		$params = array('id' => $id);
+		//Convert loading the student library to driver
+		$this->load->driver('student', $params);
+
 	}
 	
-	//displays the home page of the student
+	/**
+	 *	displays the home page of the student
+	 * 	and the events and records of the student
+	 */
 	public function index() {
 		if($this->session->userdata('userId')) {
 			//set data array
 			$data['title'] = 'Home Page';
 			$data['name'] = $this->student->getName();
 			$data['username'] = $this->student->getUsername();
-			
-			//load views
-			$this->load->view('header_view', $data);
-			$this->load->view('student_view', $data);
-			//if student is admin, load an additional view
-			//if($this->session->userdata('accntType') == 'admin') {
-			//	$data['idnumber'] = $this->student->getIdNum();
-			//	$this->load->view('admin_student_view', $data);
-			//}
-			$this->load->view('footer_view');
-		}
-		else
-			redirect(site_url('controller'));
-	}
-	
-	//display the current student's records
-	public function displayThisStudentRecord() {
-		if($this->session->userdata('userId')) {
-			//set data array
-			$data['title'] = $this->student->getName() . '\'s Records'; 
+			$data['idnumber'] = $this->student->getIdNum();
 			$data['records'] = $this->student->getThisStudentEventRecord();
+			$data['accnt'] = ucfirst($this->session->userdata('accntType'));
+			$data['course'] = $this->student->getCoursein();
+			$data['college'] = $this->student->getCollegein();
 			
 			//load views
 			$this->load->view('header_view', $data);
-			$this->load->view('student_viewrecord_view', $data);
+			$this->load->view('student_first_part_view', $data);
+			//if student is admin, load an additional view
+			if($this->session->userdata('accntType') == 'admin') {
+				$this->load->view('admin_student_additional_view', $data);
+			}
+			$this->load->view('student_second_part_view', $data);
 			$this->load->view('footer_view');
 		}
 		else
 			redirect(site_url('controller'));
-	}
-	
-	//display the current student's made events.
-	//it could be sing in or sign out depending on the parameter
-	public function displayThisStudentMadeRecords() {
-		
 	}
 	
 }

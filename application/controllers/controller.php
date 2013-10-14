@@ -23,18 +23,17 @@ class Controller extends CI_Controller {
 	 //if the user is already logged in, redirect the user to his/her homepage
 	 //	through the showHome function
 	 public function index() {
-		 if(!$this->session->userdata('userId')) {
-			//$this->form_validation->set_rules('username', 'Username', 'required');
-			//$this->form_validation->set_rules('password', 'Password', 'required');
+		
+		if(!$this->session->userdata('userId')) { 	
 			$data['title'] = 'Asiso';
 			$this->load->view('header_view', $data);
 			$this->load->view('login_view');
 			$this->load->view('footer_view');
-		 }
-		 else {
+		}
+		else {
 			redirect(site_url("controller/showHome"));
-		 }
-	 }
+		}
+	}
 	 
 	 //logs in the user
 	 //if the query returns false, load user not found page
@@ -45,14 +44,10 @@ class Controller extends CI_Controller {
 		
 		if(!$this->session->userdata('userId')) {
 			$query = $this->login->log_user($username, $password);
-			if($query == false) {
 				$this->load->view('header_view');
 				$this->load->view('user_notfound');
 				$this->load->view('footer_view');
-			}
-			else {
 				redirect(site_url("controller/showHome"));
-			}
 		}
 		else {
 			redirect(site_url("controller/showHome"));

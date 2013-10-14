@@ -63,20 +63,49 @@
 		background-color: #FC0; 
 	}
 	
-	#content {
+	/* Content pannel for the student info part */
+	#studentinfo {
 		font-family: Tahoma;
 		font-size: 15px;
 		height: auto;
 		border: 1px solid;
 		min-height: 200px;
-		margin:100px auto;
-		width:1000px;
+		margin-left: 100px auto;
+		width:500px;
 		background-color: white; 
-		padding: 40px;
 		border-radius: 5px; 
 		border:1px solid #909090;
 		box-shadow: 4px 4px 7px black;
 		text-shadow: none;
+		float: left;
+		overflow: auto;
+	}
+	
+	/* Content panel for the events attended by a student */
+	.eventsattended {
+		border: 1px solid red;
+		width: 660px;
+		float: right;
+		min-height: 200px;
+		border-radius: 5px; 
+		border:1px solid #909090;
+		box-shadow: 4px 4px 7px black;
+		overflow: auto;
+	}
+	
+	/* Main content pannel of the pages */
+	.content {
+		font-family: Tahoma;
+		font-size: 15px;
+		padding: 10px;
+		height: auto;
+		border: 1px solid;
+		min-height: 200px;
+		margin:100px auto;
+		width:1200px;
+		background-color: white; 
+		text-shadow: none;
+		overflow: auto;
 	}
 	
 	#navmenu .sub1 a {
@@ -156,7 +185,8 @@
 		padding: 30px;
 		box-shadow: 0.4em 0.4em 0.7em black;
 	}
-
+	
+	/* Date sa login page */
 	#date_time {
 		font-family: verdana, helvetica;
 		font-size: 15px;
@@ -212,6 +242,51 @@
 		of student or event
 	*/
 	th.recordheader {
-		font-family: Arial, Verdana, Sans-serif;
-		font-size: 1.2em;
+		font-family: Tahoma;
+		font-size: 11px;
 	}
+	
+	td.recordheader {
+		font-family: Tahoma;
+		font-size: 15px;
+	}
+	
+	/*
+		In home page of the student
+		The details part of the page
+	*/
+	#homedetails {
+		width: 300px;
+		min-height: 200px;
+		float: left;
+		font-family: Tahoma;
+		text-shadow: none;
+		text-align: center;
+		font-size: 18px;
+	}
+	
+	#homedetails table {
+		padding-top: 40px;
+		margin-left: auto;
+		margin-right: auto;
+		font-size: 15px;
+	}
+	
+	#homedetails tr, td {
+		font-family: Tahoma;
+		text-shadow: none;
+	}
+	
+	/*
+		In home page of the student
+		The image part of the page
+	*/
+	#homepicture {
+		width: 196px;
+		min-height: 200px;
+		float: right;
+		font-family: Tahoma;
+		text-shadow: none;
+	}
+	
+	

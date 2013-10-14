@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Student {
+class Student extends CI_Driver_Library {
 	
 	//student data -- initially null
 	protected $idNum = null;
@@ -9,6 +9,8 @@ class Student {
 	protected $collegein = null;
 	protected $coursein = null;
 	protected $year = null;
+	
+	protected $valid_drivers;
 	private $student;
 	
 	//constructor
@@ -31,14 +33,18 @@ class Student {
 		if($skul != false) {
 			//set attributes if $skul query returns something
 			$skulRow = $skul->row();
-			$this->collegein = $skulRow->college;
-			$this->coursein = $skulRow->course;
+			$this->collegein = $skulRow->colname;
+			$this->coursein = $skulRow->couname;
 		}
+		$this->valid_drivers = array('student_admin');
+		
 	}
 	
-	//get the event records of the current instance of Student
-	//returns the query in array form of all the attended events of the student if the student has attended at least one event
-	//otherwise, returns an empty array
+	/**
+	 *	get the event records of the current instance of Student
+	 *	returns the query in array form of all the attended events of the student  *  if the student has attended at least one event
+	 *	otherwise, returns an empty array
+	*/
 	public function getThisStudentEventRecord() {
 		$query = $this->student->getEventsOfThisStudent($this->idNum);
 		if($query != false)
@@ -64,7 +70,7 @@ class Student {
 	}
 	
 	public function getCollegein() {
-		return $this->collegin;
+		return $this->collegein;
 	}
 	
 	public function getCoursein() {

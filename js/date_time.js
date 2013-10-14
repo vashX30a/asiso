@@ -28,8 +28,10 @@ function date_time(id)
     {
         s = "0"+s;
     }
+	
+	hour = h <= 12 ? h%13 : h%12;
         
-	result = 'Today is '+days[day]+' '+months[month]+' '+d+', '+year+' '+ h%24 +':'+m+':'+s+ ' '+ AMPM;
+	result = 'Today is '+days[day]+' '+months[month]+' '+d+', '+year+' '+ hour +':'+m+':'+s+ ' '+ AMPM;
     document.getElementById(id).innerHTML = result;
     setTimeout('date_time("'+id+'");','1000');
     return true;

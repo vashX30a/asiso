@@ -7,15 +7,17 @@ class Login_model extends CI_Model {
 		$this->load->database();
 	}
 	
-	//retrieves information of a user given his/her username and password
-	//creates an session cookie in the process
-	//if the user is found, returns the query object
-	//if nothing is found, the function returns false.
+	/**
+	 *	retrieves information of a user given his/her username and password
+	 *	creates an session cookie in the process
+	 *	if the user is found, @returns the query object
+	 *	if nothing is found, the function @returns false.
+	 */
 	public function log_user($username, $password) {
 		$result = $this->db->query("Select * from student where username = '$username'
 			and password = '$password'");
 		if($result->num_rows() == 0) {
-			return false;
+			return FALSE;
 		}
 		else {
 			$value = $result->row();

@@ -1,6 +1,6 @@
 <body>
 	<!--MSUIIT Logo-->
-	<p><center><img src="img/iit-logo.gif" width="94" height="94" align="texttop" longdesc="img/iit-logo.gif" />
+	<p><center><img src="<?php echo base_url() ?>img/iit-logo.gif" width="94" height="94" align="texttop" longdesc="<?php echo base_url() ?>img/iit-logo.gif" />
 	</center></p>
 	<!-- ID header -->
 	<div id="header">
@@ -12,8 +12,8 @@
 		<form action=<?php echo site_url('controller/login') ?> method=post>
 		
 		<table border=0 cellpadding=20 cellspacing=3>
-		<tr><td>Username:</td><td><input placeholder="Enter Username" type=text size=20 name="username" /></td></tr>
-		<tr><td>password:</td><td> <input placeholder="Enter Password" type=password size=20 name="password" /></td></tr>
+		<tr><td>Username:</td><td><input type=text size=20 name="username" /></td></tr>
+		<tr><td>password:</td><td> <input type=password size=20 name="password" /></td></tr>
 		<tr><td></td><td><input type=submit border=20 value="Login"></td></tr>
 		</table>
 		</form>
