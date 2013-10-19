@@ -9,6 +9,6 @@
 			<script type="text/javascript">window.onload = date_time('date_time');</script>
 	</div>
 	<!--Code for the dropdown navmenu -->
-	<div>
+	<div id = "tab">
 		<ul id ="navmenu">
 			<li><a href= "<?php echo current_url() ?>" >Home</a></li>

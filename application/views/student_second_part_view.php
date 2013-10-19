@@ -8,7 +8,7 @@
 		<div id="studentinfo">
 			<div id="homedetails">
 				<center>Student Information</center>
-				<table cellpadding= 2 cellspacing = 2>
+				<table cellpadding= 2 cellspacing = 5>
 				
 					<tr>
 						<td>Name</td>
@@ -21,7 +21,7 @@
 					</tr>
 					
 					<tr>
-						<td>Account Type</td>
+						<td>Acc Type</td>
 						<td><?php echo $accnt ?></td>
 					</tr>
 					

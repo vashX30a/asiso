@@ -25,7 +25,6 @@
 			text-align: center;
 			position: relative;
 			float: left;
-			margin-right: 3px;
 	}
 	
 	#well li{
@@ -41,12 +40,9 @@
 		height: 25px;
 		line-height: 25px;
 		background-color: white;
-		border: 1px solid black;
-		border-radius: 5px;
 	}
 			
 	#header {
-		text-shadow: 0.2em 0.2em 0.4em #161616;
 		text-align: center;
 		font-family: calibri;
 		font-size: 20px;
@@ -56,12 +52,7 @@
 		color #424242;
 	}
 	
-	#header ul {
-		width: 80%;
-		margin: 100 auto ;
-		padding: 0px;
-		background-color: #FC0; 
-	}
+	
 	
 	/* Content pannel for the student info part */
 	#studentinfo {
@@ -99,7 +90,7 @@
 		font-size: 15px;
 		padding: 10px;
 		height: auto;
-		border: 1px solid;
+		border: 1px solid black;
 		min-height: 200px;
 		margin:100px auto;
 		width:1200px;
@@ -112,6 +103,7 @@
 		margin-top: 2px;
 	}
 	
+	/* candidate i delete */
 	#navmenu .sub2 a {
 		margin-top: 2px;
 	}
@@ -119,6 +111,7 @@
 	#navmenu li:hover > a{
 		background-color: #CFC;
 	}
+	
 	
 	#navmenu li:hover a:hover {
 		background-color: #CFCFCF;
@@ -131,6 +124,7 @@
 		left: 0px;
 	}
 	
+	/* candidate i delete */
 	#navmenu ul.sub2 {
 		display: none;
 		position: absolute;
@@ -261,7 +255,7 @@
 		float: left;
 		font-family: Tahoma;
 		text-shadow: none;
-		text-align: center;
+		text-align: left;
 		font-size: 18px;
 	}
 	
@@ -287,6 +281,13 @@
 		float: right;
 		font-family: Tahoma;
 		text-shadow: none;
+	}
+	
+	#tab {
+		width: auto;
+		height: 25px;
+		padding-bottom: 1px;
+		border-bottom: 1px solid black;
 	}
 	
 	
