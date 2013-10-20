@@ -54,8 +54,8 @@
 	
 	
 	
-	/* Content pannel for the student info part */
-	#studentinfo {
+	/* Content pannel for the info part in homepage */
+	.info {
 		font-family: Tahoma;
 		font-size: 15px;
 		height: auto;
@@ -246,10 +246,10 @@
 	}
 	
 	/*
-		In home page of the student
+		In home page of the college, student
 		The details part of the page
 	*/
-	#homedetails {
+	.details {
 		width: 300px;
 		min-height: 200px;
 		float: left;
@@ -259,23 +259,24 @@
 		font-size: 18px;
 	}
 	
-	#homedetails table {
+	.details table {
 		padding-top: 40px;
-		margin-left: auto;
+		padding-left: 20px;
+		margin-left: 10px;
 		margin-right: auto;
 		font-size: 15px;
 	}
 	
-	#homedetails tr, td {
+	.details tr, td {
 		font-family: Tahoma;
 		text-shadow: none;
 	}
 	
 	/*
-		In home page of the student
+		In home page of the college, student
 		The image part of the page
 	*/
-	#homepicture {
+	.picture {
 		width: 196px;
 		min-height: 200px;
 		float: right;

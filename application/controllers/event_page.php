@@ -7,6 +7,7 @@ class Event_page extends CI_Controller {
 		$this->load->library(array('session'));
 		$this->load->helper(array('url', 'form', 'html'));
 		$this->load->model('student_model', 'student');
+		$this->load->model('college_model', 'college');
 		$id = $this->session->userdata('userId');
 		$params = array('id' => $id);
 		$this->load->driver('student', $params);
@@ -15,9 +16,14 @@ class Event_page extends CI_Controller {
 	public function index() {
 		
 		if($this->session->userdata('userId')) {
-			$data['title'] = 'Event';
+			$id = $this->session->userdata('userId');
+			$query = $this->college->getCollegeInitialOfThisStudent($id)->row();
+			$college = $query->college_initial;
+			$data['title'] = $college;
+			
+			
 			$this->load->view('header_view', $data);
-			//$this->load->view('college_home_view', $data);
+			$this->load->view('event_home_view', $data);
 			$this->load->view('footer_view');
 		}
 		else {

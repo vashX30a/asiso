@@ -40,6 +40,16 @@ class College_model extends CI_Model {
 		$query = $this->db->query("SELECT c.college_initial FROM college c join belongs b on c.college_initial = b.college WHERE b.stud_id = '$idnumber'");
 		return $query;
 	 }
+	 
+	 public function getCollegeGovernor($collegeId){
+		$query = $this->db->query("SELECT s.fname, s.lname FROM student s JOIN college c ON s.idnumber = c.governor_id WHERE c.college_initial = '$collegeId'");
+		return $query;
+	}
+	/*
+	public function getCollegeGovernorLname($collegeId){
+		$query = $this->db->query("SELECT s.lname FROM student s JOIN college c ON s.idnumber = c.governor_id WHERE c.college_initial = '$collegeId'");
+		return $query;
+	}*/
 }
 
 /* End of File */

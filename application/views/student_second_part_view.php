@@ -5,8 +5,8 @@
 	
 	<!--Content of the page-->
 	<div class="content">
-		<div id="studentinfo">
-			<div id="homedetails">
+		<div class="info">
+			<div class="details">
 				<center>Student Information</center>
 				<table cellpadding= 2 cellspacing = 5>
 				
@@ -44,7 +44,7 @@
 		
 			</div>
 			
-			<div id = "homepicture">
+			<div class="picture">
 				<img src="<?php echo base_url() ?>img/iit-logo.gif" width="196" height="200" align="texttop" longdesc="<?php echo base_url() ?>img/iit-logo.gif" />
 			</div>
 		</div>
