@@ -1,7 +1,5 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-//include 'Student.php';
-
 class Student_admin extends CI_Driver {
 	
 	//returns all student records in a specific event
@@ -25,6 +23,11 @@ class Student_admin extends CI_Driver {
 	
 	public function editStudent($stud_id, $whatToEdit, $newValue) {
 		//TODO
+	}
+	
+	public function getStudId() {
+		$id = idNum;
+		return $id;
 	}
 	
 }

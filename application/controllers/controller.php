@@ -11,7 +11,8 @@
 class Controller extends CI_Controller {
 	
 	//constructor
-	 public function __construct() {
+	//note: sessions are located in Login_model file
+	public function __construct() {
 		parent::__construct();
 		$this->load->helper(array('url', 'form', 'html'));
 		$this->load->library(array('session', 'form_validation'));
@@ -23,7 +24,7 @@ class Controller extends CI_Controller {
 	 //if the user is already logged in, redirect the user to his/her homepage
 	 //	through the showHome function
 	 public function index() {
-		
+
 		if(!$this->session->userdata('userId')) { 	
 			$data['title'] = 'Asiso';
 			$this->load->view('header_view', $data);

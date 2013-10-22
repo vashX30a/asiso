@@ -10,9 +10,8 @@
 
 class Student_page extends CI_Controller {
 	
-	//private $header;
-	
 	//constructor
+	//note: sessions are located in Login_model file
 	public function __construct() {
 		parent::__construct();
 		$this->load->library(array('session'));
@@ -21,7 +20,7 @@ class Student_page extends CI_Controller {
 		$id = $this->session->userdata('userId');
 		//set parameter for student object
 		$params = array('id' => $id);
-		//Convert loading the student library to driver
+		//student driver located at: /application/libraries/student directory
 		$this->load->driver('student', $params);
 
 	}
@@ -33,12 +32,12 @@ class Student_page extends CI_Controller {
 	public function index() {
 		if($this->session->userdata('userId')) {
 			//set data array
-			$data['title'] = 'Home Page';
+			$data['title'] ='Home Page';
 			$data['name'] = $this->student->getName();
 			$data['username'] = $this->student->getUsername();
 			$data['idnumber'] = $this->student->getIdNum();
 			$data['records'] = $this->student->getThisStudentEventRecord();
-			$data['accnt'] = ucfirst($this->session->userdata('accntType'));
+			$data['accnt'] = ucfirst($this->session->userdata('accntType'));	
 			$data['course'] = $this->student->getCoursein();
 			$data['college'] = $this->student->getCollegein();
 			

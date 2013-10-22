@@ -42,7 +42,7 @@ class College_model extends CI_Model {
 	 }
 	 
 	 public function getCollegeGovernor($collegeId){
-		$query = $this->db->query("SELECT s.fname, s.lname FROM student s JOIN college c ON s.idnumber = c.governor_id WHERE c.college_initial = '$collegeId'");
+		$query = $this->db->query("SELECT c.governor_id, s.fname, s.lname FROM student s JOIN college c ON s.idnumber = c.governor_id WHERE c.college_initial = '$collegeId'");
 		return $query;
 	}
 	/*

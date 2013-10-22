@@ -37,12 +37,13 @@ class Student extends CI_Driver_Library {
 			$this->coursein = $skulRow->couname;
 		}
 		$this->valid_drivers = array('student_admin');
+		$this->valid_drivers = array('student_governor');
 		
 	}
 	
 	/**
 	 *	get the event records of the current instance of Student
-	 *	returns the query in array form of all the attended events of the student  *  if the student has attended at least one event
+	 *	returns the query in array form of all the attended events of the student if the student has attended at least one event
 	 *	otherwise, returns an empty array
 	*/
 	public function getThisStudentEventRecord() {

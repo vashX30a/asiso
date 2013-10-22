@@ -1,32 +1,12 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Governor extends Admin_student {
-	
-	//instance variables for models
-	private $student;
-	private $college;
-	private $event;
-	
-	//constructor
-	public function __construct($params) {
-		parent::__construct($params);	//calls constructor of the Admin_student
-		$CI = & get_instance();
-		//load student_model
-		$CI->load->model('student_model');
-		$this->student = $CI->student_model;
-		//load college_model
-		$CI->load->model('college_model');
-		$this->college = $CI->college_model;
-		//load event_model
-		$CI->load->model('event_model');
-		$this->event = $CI->event_model;
-	}
-	
+class Student_governor extends CI_Driver {
+
 	//adds administrative rights to a given student
 	//straightforward implementation
 	//returns void
 	public function addAdmin($stud_id) {
-		$this->student->editStudent($stude_id, 'isadmin', true);
+		$this->student->editStudent($stud_id, 'isadmin', true);
 	}
 	
 	//deletes administrative rights to a given student

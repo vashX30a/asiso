@@ -29,9 +29,12 @@ function date_time(id)
         s = "0"+s;
     }
 	
-	hour = h <= 12 ? h%13 : h%12;
+	if(h == 0 || h == 12)
+		h = 12;
+	else
+		h = h % 12;
         
-	result = 'Today is '+days[day]+' '+months[month]+' '+d+', '+year+' '+ hour +':'+m+':'+s+ ' '+ AMPM;
+	result = 'Today is '+days[day]+' '+months[month]+' '+d+', '+year+' '+ h +':'+m+':'+s+ ' '+ AMPM;
     document.getElementById(id).innerHTML = result;
     setTimeout('date_time("'+id+'");','1000');
     return true;
